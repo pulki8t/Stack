@@ -1,0 +1,94 @@
+#include <stdio.h>
+
+char arr[10];
+int first=-1;
+int capacity= 10;
+
+void push(char a)
+{
+    if(first>= capacity-1)
+    {
+        printf("Overflow\n");
+    }
+    else
+    {
+        first++;
+        arr[first]= a;
+    }
+}
+
+void pop()
+    {
+    if(first<=-1)
+    {
+        printf("Empty\n");
+    }
+    else
+    {
+        first--;
+    }
+}
+
+void display()
+{
+    int i;
+    if(first<=-1)
+    {
+        printf("Empty\n");
+    }
+    else
+    {
+        for(i= 0; i<=first; i++)
+        {
+            printf("%c ", arr[i]);
+        }
+    }
+}
+
+
+int main()
+{
+    int ch;
+    char chr;
+    printf("1 to add the character\n");
+    printf("2 to delete the character\n");
+    printf("3 to display the array\n");
+    printf("4 to end\n");
+    do
+    {
+        printf("\nEnter the choice:\n");
+        scanf("%d", &ch);
+        switch(ch)
+        {
+            case 1:
+            {
+                printf("Enter the character to be added:\n");
+                scanf("%c", &chr);
+                scanf("%c", &chr);
+                push(chr);
+                break;
+            }
+            case 2:
+            {
+                pop();
+                break;
+            }
+            case 3:
+            {
+                display();
+                break;
+            }
+            case 4:
+            {
+                break;
+            }
+            default:
+            {
+                printf("Invalid choice");
+                break;
+            }
+        }
+    }while(ch!=4);
+    
+    return 0;
+}
